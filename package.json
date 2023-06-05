@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "note taking web app",
   "main": "server.js",
+  "engines": {
+    "node": "^16.20.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "server.js"
+    "start": "node server.js"
   },
   "author": "Ben Storlie",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": "github:benjstorlie/note-taker",
   "dependencies": {
     "express": "^4.16.4"
   }

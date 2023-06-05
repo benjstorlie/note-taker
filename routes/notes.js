@@ -1,5 +1,5 @@
 const notes = require('express').Router();
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('../helpers/uuid.js');
 const {
   readFromFile,
   readAndAppend,
@@ -36,7 +36,7 @@ notes.get('/:note_id', (req, res) => {
 // DELETE Route for a specific note
 notes.delete('/:note_id', (req, res) => {
   const noteId = req.params.note_id;
-  readFromFile('./db/notes.json')
+  readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
       // Make a new array of all notes except the one with the ID provided in the URL
@@ -63,7 +63,7 @@ notes.post('/', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuidv4(),
+      note_id: uuid(),
     };
 
     readAndAppend(newNote, './db/db.json');

@@ -1,5 +1,5 @@
 const diagnostics = require('express').Router();
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('../helpers/uuid.js');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 
 // GET Route for retrieving diagnostic information
@@ -17,7 +17,7 @@ diagnostics.post('/', (req, res) => {
 
   const payload = {
     time: Date.now(),
-    error_id: uuidv4(),
+    error_id: uuid(),
     errors,
   };
 
