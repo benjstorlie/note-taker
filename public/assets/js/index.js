@@ -15,7 +15,7 @@ let saveNoteBtn;
 let newNoteBtn;
 
 /** ul.note-list.list-group
- * @type {HTMLUListElement} */
+ * @type {HTMLUListElement[]} */
 let noteList;
 
 /**
@@ -24,14 +24,19 @@ let noteList;
  * @property {String} title - note title
  * @property {String} text - content of the note
  * @property {String} [note_id] - unique id, only undefined if this is the current active note and has never been saved
- */
+*/
 
+// This is the same script used in index.html, and the following elements only need to be defined for notes.html
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
-  noteList = document.querySelectorAll('.note-list');
+  /** How come this is querySelectorAll? Is there another .note-list?
+   * See at the bottom of function createLi that each list element is appended to `noteList[0]`
+   * @see createLi
+  */
+  noteList = document.querySelectorAll('.note-list');  
 }
 
 /**
@@ -73,6 +78,8 @@ const getNotes = () =>
  * - Saves new note to db.json.  See ./routes/notes.js.
  * - Used by function handleNoteSave, which is called upon clicking the saveNoteButton
  * @param {Note} note - new note to save
+ * @see handleNoteSave
+ * @see saveNoteBtn
  */
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -88,7 +95,8 @@ const saveNote = (note) =>
  * - Deletes from db.json the note with the given id.  See ./routes/notes.js
  * - Used by function handleNoteDelete, which is called upon clicking the delete button for a given note in the note list
  * @param {String} note_id - The id of the note to be deleted
- * @returns void
+ * @see handleNoteDelete
+ * @see noteList
  */
 const deleteNote = (note_id) =>
   fetch(`/api/notes/${note_id}`, {
@@ -195,6 +203,7 @@ const handleRenderSaveBtn = () => {
  * @param {String} notes - The contents of db.json
  */
 const renderNoteList = async (notes) => {
+  /** @type {Note[]} */
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
@@ -247,9 +256,10 @@ const renderNoteList = async (notes) => {
     noteListItems.push(createLi('No saved Notes', false));
   }
 
+
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
-    li.dataset.note = JSON.stringify(note);
+    li.dataset.note = JSON.stringify(note);  // li.setAttribute('data-note',JSON.stringify(note))
 
     noteListItems.push(li);
   });

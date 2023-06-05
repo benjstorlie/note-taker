@@ -11,7 +11,7 @@ const {
  * @typedef {Object} Note
  * @property {String} title - note title
  * @property {String} text - content of the note
- * @property {String} note_id - unique id
+ * @property {String} [note_id] - unique id, only undefined for a new note received 
  */
 
 // GET Route for retrieving all the notes
@@ -55,6 +55,7 @@ notes.delete('/:note_id', (req, res) => {
 notes.post('/', (req, res) => {
   console.log(req.body);
 
+  /** @type {Note} */
   const { title, text } = req.body;
 
   if (req.body) {
