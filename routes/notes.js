@@ -1,5 +1,5 @@
 const notes = require('express').Router();
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('../helpers/uuid.js');
 const {
   readFromFile,
   readAndAppend,
@@ -63,7 +63,7 @@ notes.post('/', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuidv4(),
+      note_id: uuid(),
     };
 
     readAndAppend(newNote, './db/db.json');
