@@ -36,7 +36,7 @@ notes.get('/:note_id', (req, res) => {
 // DELETE Route for a specific note
 notes.delete('/:note_id', (req, res) => {
   const noteId = req.params.note_id;
-  readFromFile('./db/notes.json')
+  readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
       // Make a new array of all notes except the one with the ID provided in the URL
