@@ -75,7 +75,7 @@ const getNotes = () =>
 
 /**
  * - POST fetch request, URL: '/api/notes'.
- * - Saves new note to db.json.  See ./routes/notes.js.
+ * - Saves new note to db.json.  See ./routes/notes.js.  This is where the new note is given a unique id.
  * - Used by function handleNoteSave, which is called upon clicking the saveNoteButton
  * @param {Note} note - new note to save
  * @see handleNoteSave
@@ -128,6 +128,9 @@ const renderActiveNote = () => {
 
 /**
  * Called upon clicking the save button
+ * - `saveNoteBtn.addEventListener('click', handleNoteSave);`
+ * @see saveNote
+ * @see saveNoteBtn
  */
 const handleNoteSave = () => {
   /** @type {Note} */
@@ -144,6 +147,8 @@ const handleNoteSave = () => {
 /**
  * Called upon clicking a delete button
  * @param {MouseEvent} e - Click event
+ * @see deleteNote
+ * @see renderNoteList - where the note list element is given the attribute data-note, and where the delete buttons are given this event listener callback function
  */
 const handleNoteDelete = (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
@@ -170,6 +175,7 @@ const handleNoteDelete = (e) => {
 /**
  * Sets the activeNote and displays it
  * @param {Event} e 
+ * @see renderNoteList
  */
 const handleNoteView = (e) => {
   e.preventDefault();
@@ -181,6 +187,7 @@ const handleNoteView = (e) => {
 /**
  * Sets the activeNote to and empty object and allows the user to enter a new note. Called upon clicking New Note button
  * @param {Event} e - Click event
+ * @see newNoteBtn
  */
 const handleNewNoteView = (e) => {
   activeNote = {};
@@ -188,7 +195,7 @@ const handleNewNoteView = (e) => {
 };
 
 /**
- * if there is no title, or no text, hide the save button
+ * if there is no title, or no text, hide the save button 
  */
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
@@ -201,6 +208,8 @@ const handleRenderSaveBtn = () => {
 /**
  * Render the list of note titles.  Called in function getAndRenderNotes = () => getNotes().then(renderNoteList);
  * @param {String} notes - The contents of db.json
+ * @see getAndRenderNotes
+ * @async
  */
 const renderNoteList = async (notes) => {
   /** @type {Note[]} */
@@ -209,6 +218,7 @@ const renderNoteList = async (notes) => {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
 
+  /** @type {HTMLLIElement[]} */
   let noteListItems = [];
 
   /**
@@ -222,11 +232,13 @@ const renderNoteList = async (notes) => {
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item');
 
-    /** @type {HTMLSpanElement} */
+    /** list item title
+     * @type {HTMLSpanElement} */
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
+
 
     liEl.append(spanEl);
 
