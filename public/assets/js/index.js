@@ -23,7 +23,7 @@ let noteList;
  * @typedef {Object} Note
  * @property {String} title - note title
  * @property {String} text - content of the note
- * @property {String} [id] - unique id, only undefined if this is the current active note and has never been saved
+ * @property {String} [note_id] - unique id, only undefined if this is the current active note and has never been saved
  */
 
 if (window.location.pathname === '/notes') {
@@ -84,14 +84,14 @@ const saveNote = (note) =>
   });
 
 /**
- * - DELETE fetch request, URL: `/api/notes/${id}`
+ * - DELETE fetch request, URL: `/api/notes/${note_id}`
  * - Deletes from db.json the note with the given id.  See ./routes/notes.js
  * - Used by function handleNoteDelete, which is called upon clicking the delete button for a given note in the note list
- * @param {String} id - The id of the note to be deleted
+ * @param {String} note_id - The id of the note to be deleted
  * @returns void
  */
-const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+const deleteNote = (note_id) =>
+  fetch(`/api/notes/${note_id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ const renderActiveNote = () => {
   hide(saveNoteBtn);
 
   // if the active note is one that was previously saved
-  if (activeNote.id) {
+  if (activeNote.note_id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
@@ -145,10 +145,10 @@ const handleNoteDelete = (e) => {
   const del = e.target;
   /** @type {Note} */
   const note = JSON.parse(del.parentElement.getAttribute('data-note'));
-  const noteId = note.id;
+  const noteId = note.note_id;
 
   // if the note to delete is also displayed as the active note, reset the active note to blank
-  if (activeNote.id === noteId) {
+  if (activeNote.note_id === noteId) {
     activeNote = {};
   }
 
@@ -206,12 +206,14 @@ const renderNoteList = async (notes) => {
    * Returns HTML element with or without a delete button
    * @param {String} text - Note title
    * @param {Boolean} [delBtn=true] - Whether to create delete button
-   * @returns 
+   * @returns {HTMLLIElement}
    */
   const createLi = (text, delBtn = true) => {
+    /** @type {HTMLLIElement} */
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item');
 
+    /** @type {HTMLSpanElement} */
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
     spanEl.innerText = text;
@@ -221,8 +223,9 @@ const renderNoteList = async (notes) => {
 
     if (delBtn) {
       /**
-       * The delete button for each note in noteList
-       * @type {Element}
+       * The delete button for each note in noteList. 
+       * .list-container i 
+       * @type {HTMLElement}
        */
       const delBtnEl = document.createElement('i');
       delBtnEl.classList.add(

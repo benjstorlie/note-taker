@@ -11,7 +11,7 @@ const {
  * @typedef {Object} Note
  * @property {String} title - note title
  * @property {String} text - content of the note
- * @property {String} id - unique id
+ * @property {String} note_id - unique id
  */
 
 // GET Route for retrieving all the notes
@@ -25,6 +25,7 @@ notes.get('/:note_id', (req, res) => {
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
+      /** @type {Note[]} */
       const result = json.filter((note) => note.note_id === noteId);
       return result.length > 0
         ? res.json(result)
@@ -39,6 +40,7 @@ notes.delete('/:note_id', (req, res) => {
     .then((data) => JSON.parse(data))
     .then((json) => {
       // Make a new array of all notes except the one with the ID provided in the URL
+      /** @type {Note[]} */
       const result = json.filter((note) => note.note_id !== noteId);
 
       // Save that array to the filesystem
@@ -56,6 +58,7 @@ notes.post('/', (req, res) => {
   const { title, text } = req.body;
 
   if (req.body) {
+    /** @type {Note} */
     const newNote = {
       title,
       text,

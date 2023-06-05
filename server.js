@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);  // const api = require('./routes/index.js');
 
+// This is how the pages get access to everything in the public folder, like the css and scripts
 app.use(express.static('public'));
 
 // GET Route for homepage
