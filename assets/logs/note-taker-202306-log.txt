@@ -1,0 +1,47 @@
+2023-06-06T05:33:07.000000+00:00 app[api]: Build started by user benjstorlie@gmail.com
+2023-06-06T05:33:20.321001+00:00 heroku[web.1]: Restarting
+2023-06-06T05:33:20.382484+00:00 heroku[web.1]: State changed from up to starting
+2023-06-06T05:33:21.008963+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2023-06-06T05:33:21.045058+00:00 app[web.1]: Error waiting for process to terminate: No child processes
+2023-06-06T05:33:21.172968+00:00 heroku[web.1]: Process exited with status 22
+2023-06-06T05:33:20.055726+00:00 app[api]: Release v16 created by user benjstorlie@gmail.com
+2023-06-06T05:33:20.000000+00:00 app[api]: Build succeeded
+2023-06-06T05:33:20.055726+00:00 app[api]: Deploy cf197065 by user benjstorlie@gmail.com
+2023-06-06T05:33:22.538049+00:00 heroku[web.1]: Starting process with command `npm start`
+2023-06-06T05:33:23.807439+00:00 app[web.1]: 
+2023-06-06T05:33:23.807447+00:00 app[web.1]: > note-taker@1.0.0 start
+2023-06-06T05:33:23.807455+00:00 app[web.1]: > node server.js
+2023-06-06T05:33:23.807456+00:00 app[web.1]: 
+2023-06-06T05:33:23.908035+00:00 app[web.1]: App listening at http://localhost:25846 🚀
+2023-06-06T05:33:24.260826+00:00 heroku[web.1]: State changed from starting to up
+2023-06-06T05:34:12.796682+00:00 heroku[router]: at=info method=GET path="/" host=note-taker-202306.herokuapp.com request_id=22f6a379-23fc-43e6-9f3b-c19996607c3d fwd="174.50.139.124" dyno=web.1 connect=0ms service=8ms status=200 bytes=1270 protocol=https
+2023-06-06T05:34:12.790454+00:00 app[web.1]: 📗 [36mGET request to /
+2023-06-06T05:34:12.966039+00:00 app[web.1]: 📗 [36mGET request to /assets/js/index.js
+2023-06-06T05:34:12.968141+00:00 heroku[router]: at=info method=GET path="/assets/js/index.js" host=note-taker-202306.herokuapp.com request_id=aa6b29bc-c9d3-46cd-b1a1-d9a9a634f6fa fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=200 bytes=8420 protocol=https
+2023-06-06T05:34:13.099763+00:00 heroku[router]: at=info method=GET path="/api/notes" host=note-taker-202306.herokuapp.com request_id=8c19cd54-39e9-493f-a507-425346d46245 fwd="174.50.139.124" dyno=web.1 connect=0ms service=3ms status=200 bytes=267 protocol=https
+2023-06-06T05:34:13.096264+00:00 app[web.1]: 📗 [36mGET request to /api/notes
+2023-06-06T05:34:14.067037+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=note-taker-202306.herokuapp.com request_id=a0f7c882-a1fc-4b60-b226-8eb7915ef2cd fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=200 bytes=1312 protocol=https
+2023-06-06T05:34:14.064498+00:00 app[web.1]: 📗 [36mGET request to /favicon.ico
+2023-06-06T05:34:26.360302+00:00 heroku[router]: at=info method=GET path="/notes" host=note-taker-202306.herokuapp.com request_id=d72e7776-5714-4803-9107-fc0fe0bc01d3 fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=200 bytes=2033 protocol=https
+2023-06-06T05:34:26.358777+00:00 app[web.1]: 📗 [36mGET request to /notes
+2023-06-06T05:34:26.498583+00:00 app[web.1]: 📗 [36mGET request to /assets/css/styles.css
+2023-06-06T05:34:26.526176+00:00 app[web.1]: 📗 [36mGET request to /assets/js/index.js
+2023-06-06T05:34:26.499764+00:00 heroku[router]: at=info method=GET path="/assets/css/styles.css" host=note-taker-202306.herokuapp.com request_id=11e077a0-a929-480b-ab6d-9dc6b2040a6e fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=200 bytes=1431 protocol=https
+2023-06-06T05:34:26.527175+00:00 heroku[router]: at=info method=GET path="/assets/js/index.js" host=note-taker-202306.herokuapp.com request_id=59bc711d-6ab1-4d66-9ece-319183eb0835 fwd="174.50.139.124" dyno=web.1 connect=0ms service=1ms status=304 bytes=238 protocol=https
+2023-06-06T05:34:26.613740+00:00 app[web.1]: 📗 [36mGET request to /api/notes
+2023-06-06T05:34:26.615118+00:00 heroku[router]: at=info method=GET path="/api/notes" host=note-taker-202306.herokuapp.com request_id=6a2b22fe-a001-4cc1-8586-29c8d408211b fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=304 bytes=150 protocol=https
+2023-06-06T05:34:26.918670+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=note-taker-202306.herokuapp.com request_id=a7cf02ce-5711-47bb-bd28-79a8f25be58b fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=304 bytes=237 protocol=https
+2023-06-06T05:34:26.917582+00:00 app[web.1]: 📗 [36mGET request to /favicon.ico
+2023-06-06T05:35:33.367743+00:00 heroku[router]: at=info method=POST path="/api/notes" host=note-taker-202306.herokuapp.com request_id=a482bd7d-5247-44c4-a3b4-10d79619e5b0 fwd="174.50.139.124" dyno=web.1 connect=0ms service=9ms status=200 bytes=237 protocol=https
+2023-06-06T05:35:33.455175+00:00 heroku[router]: at=info method=GET path="/api/notes" host=note-taker-202306.herokuapp.com request_id=0340c7c6-7923-499f-9866-db9fab435b41 fwd="174.50.139.124" dyno=web.1 connect=0ms service=1ms status=200 bytes=337 protocol=https
+2023-06-06T05:35:33.359325+00:00 app[web.1]: 📘 [36mPOST request to /api/notes
+2023-06-06T05:35:33.367314+00:00 app[web.1]: { title: 'Reminder', text: 'Finish your homework!' }
+2023-06-06T05:35:33.368672+00:00 app[web.1]: 
+2023-06-06T05:35:33.368673+00:00 app[web.1]: Data written to ./db/db.json
+2023-06-06T05:35:33.454464+00:00 app[web.1]: 📗 [36mGET request to /api/notes
+2023-06-06T05:35:55.763504+00:00 heroku[router]: at=info method=GET path="/api/notes" host=note-taker-202306.herokuapp.com request_id=139a1e86-ed0f-4887-887e-2fc432eebce2 fwd="174.50.139.124" dyno=web.1 connect=0ms service=1ms status=200 bytes=277 protocol=https
+2023-06-06T05:35:55.677161+00:00 app[web.1]: 📙[36mDELETE request to /api/notes/0000
+2023-06-06T05:35:55.678946+00:00 app[web.1]: 
+2023-06-06T05:35:55.678948+00:00 app[web.1]: Data written to ./db/db.json
+2023-06-06T05:35:55.762773+00:00 app[web.1]: 📗 [36mGET request to /api/notes
+2023-06-06T05:35:55.678458+00:00 heroku[router]: at=info method=DELETE path="/api/notes/0000" host=note-taker-202306.herokuapp.com request_id=0cfcf97e-fcb0-44db-bc90-e538810e724d fwd="174.50.139.124" dyno=web.1 connect=0ms service=2ms status=200 bytes=243 protocol=https
