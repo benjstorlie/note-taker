@@ -6,13 +6,15 @@
     * [User Story](#user-story)
     * [Acceptance Criteria](#acceptance-criteria)
 2. [Installation and Use](#installation-and-use)
-    * [Example Use](#example-use)
 3. [Comments](#comments)
 4. [Sources](#sources)
 
 ## Description
 
 This is a note-taking web application.  You can type up several notes and save them for later.
+
+* [Website Link](https://note-taker-202306.herokuapp.com/)
+* [Repository Link](https://github.com/benjstorlie/note-taker/)
 
 ### User Story
 
@@ -51,9 +53,9 @@ You can open any of the notes in the list by clicking on their titles, and they 
 
 Create another note by clicking the plus icon in the top left corner!
 
-![Screenshot showing use](.\assets\images\note-taker-02.png)
+![Screenshot showing use](./assets/images/note-taker-02.png)
 
-See [assets\logs\](.\assets\logs\note-taker-202306-log.txt) for an example of what the Heroku application logs look like upon deployment and use.
+See [assets/logs/](./assets/logs/note-taker-202306-log.txt) for an example of what the Heroku application logs look like upon deployment and use.
 
 ## Comments
 
