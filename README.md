@@ -55,9 +55,7 @@ Create another note by clicking the plus icon in the top left corner!
 
 ## Comments
 
-1. Most of my added code was copied from the Bootcamp Expressjs Mini-Project, and replacing 'tips' with 'notes'.  However, I did add extensive JSDoc comments detailing what exactly each part of all the functions were doing, and what type each variable was.  I think that was very helpful in deciphering the starter code, especially when there needs to be a lot of similarly named objects that do slightly different things.
-
-2. 
+Most of my added code was copied from the Bootcamp Expressjs Mini-Project, and replacing 'tips' with 'notes'.  However, I did add extensive JSDoc comments detailing what exactly each part of all the functions were doing, and what type each variable was.  I think that was very helpful in deciphering the starter code, especially when there needs to be a lot of similarly named objects that do slightly different things.
 
 ## Sources
 
