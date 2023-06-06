@@ -53,6 +53,8 @@ Create another note by clicking the plus icon in the top left corner!
 
 ![Screenshot showing use](.\assets\images\note-taker-02.png)
 
+See [assets\logs\](.\assets\logs\note-taker-202306-log.txt) for an example of what the Heroku application logs look like upon deployment and use.
+
 ## Comments
 
 Most of my added code was copied from the Bootcamp Expressjs Mini-Project, and replacing 'tips' with 'notes'.  However, I did add extensive JSDoc comments detailing what exactly each part of all the functions were doing, and what type each variable was.  I think that was very helpful in deciphering the starter code, especially when there needs to be a lot of similarly named objects that do slightly different things.
